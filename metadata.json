@@ -1,0 +1,6 @@
+{
+  "name": "Savorly",
+  "description": "Premium recipe website and culinary landing experience with search, curated recipes, and interactive food discovery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
