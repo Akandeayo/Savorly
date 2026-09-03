@@ -14,9 +14,7 @@ import {
   Award
 } from 'lucide-react';
 import { CategoryType, Recipe } from '../types';
-import heroDishImg from '../assets/images/savorly_hero_dish_1785418456470.jpg';
-import tuscanChickenImg from '../assets/images/tuscan_chicken_1785418467629.jpg';
-import salmonImg from '../assets/images/lemon_herb_salmon_1785418479888.jpg';
+import siteContent from '../data/siteContent.json';
 
 interface HeroProps {
   searchQuery: string;
@@ -26,6 +24,33 @@ interface HeroProps {
   onSearchSubmit: (query?: string, category?: CategoryType) => void;
   onSelectRecipe: (recipe: Recipe) => void;
 }
+
+const STAT_CONFIG: Record<
+  string,
+  { icon: React.ComponentType<{ className?: string }>; bg: string; text: string; fill?: string }
+> = {
+  UtensilsCrossed: {
+    icon: UtensilsCrossed,
+    bg: 'bg-orange-100 dark:bg-orange-950/50',
+    text: 'text-orange-600 dark:text-orange-400',
+  },
+  Grid: {
+    icon: Grid,
+    bg: 'bg-amber-100 dark:bg-amber-950/50',
+    text: 'text-amber-600 dark:text-amber-400',
+  },
+  Users: {
+    icon: Users,
+    bg: 'bg-blue-100 dark:bg-blue-950/50',
+    text: 'text-blue-600 dark:text-blue-400',
+  },
+  Star: {
+    icon: Star,
+    bg: 'bg-green-100 dark:bg-green-950/50',
+    text: 'text-[#15803D] dark:text-green-400',
+    fill: 'fill-green-600/20 dark:fill-green-400/20',
+  },
+};
 
 export const Hero: React.FC<HeroProps> = ({
   searchQuery,
@@ -39,79 +64,27 @@ export const Hero: React.FC<HeroProps> = ({
 
   const categoriesList: CategoryType[] = [
     'All',
-    'Breakfast',
-    'Lunch',
-    'Dinner',
-    'Desserts',
-    'Healthy',
-    'Vegetarian'
+    ...siteContent.categoriesSection.categories
+      .filter((c) => c.visible !== false)
+      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+      .map((c) => c.categoryId as CategoryType),
   ];
 
-  const popularSearches = [
-    'Chicken Alfredo',
-    'Pasta',
-    'Chocolate Cake',
-    'Smoothies',
-    'Salads'
-  ];
+  const popularSearches = siteContent.hero.popularSearches
+    .filter((p) => p.visible !== false)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
-  const recipeOfDay: Recipe = {
-    id: 'rec-1',
-    title: 'Creamy Garlic Tuscan Chicken',
-    description: 'Tender chicken breasts seared to golden perfection in a creamy garlic and sun-dried tomato sauce.',
-    category: 'Dinner',
-    prepTime: '10 mins',
-    cookTime: '20 mins',
-    servings: 4,
-    calories: 480,
-    difficulty: 'Easy',
-    rating: 5.0,
-    reviewsCount: 342,
-    views: '24.8K',
-    image: tuscanChickenImg,
-    ingredients: [
-      '2 chicken breasts',
-      '1 cup heavy cream',
-      '4 garlic cloves',
-      '1/2 cup sun-dried tomatoes',
-      '2 cups baby spinach'
-    ],
-    instructions: [
-      'Sear chicken breasts in pan until cooked.',
-      'Sauté garlic and sun-dried tomatoes.',
-      'Add cream and spinach, simmer till thickened.'
-    ],
-    tags: ['30 mins', 'Creamy', 'Dinner']
-  };
+  const stats = siteContent.hero.stats
+    .filter((s) => s.visible !== false)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
-  const recipeTrending: Recipe = {
-    id: 'rec-2',
-    title: 'One-Pan Lemon Herb Salmon',
-    description: 'Flaky baked salmon with fresh lemon slices, rosemary, and tender roasted asparagus.',
-    category: 'Healthy',
-    prepTime: '10 mins',
-    cookTime: '15 mins',
-    servings: 2,
-    calories: 420,
-    difficulty: 'Easy',
-    rating: 4.9,
-    reviewsCount: 289,
-    views: '12.4K',
-    image: salmonImg,
-    ingredients: [
-      '2 salmon fillets',
-      '1 bunch asparagus',
-      '1 fresh lemon',
-      '2 tbsp olive oil',
-      'Rosemary & garlic'
-    ],
-    instructions: [
-      'Arrange salmon and asparagus on sheet pan.',
-      'Season with olive oil, lemon, and fresh herbs.',
-      'Bake at 400°F for 15 mins.'
-    ],
-    tags: ['One-Pan', 'Low-Carb', 'Healthy']
-  };
+  const allRecipes = (siteContent.recipes as Recipe[]).filter((r) => r.visible !== false);
+
+  const recipeOfDay: Recipe =
+    allRecipes.find((r) => r.isRecipeOfDay) || allRecipes[0];
+
+  const recipeTrending: Recipe =
+    allRecipes.find((r) => r.isTrending) || allRecipes[1] || allRecipes[0];
 
   const handleChipClick = (term: string) => {
     setSearchQuery(term);
@@ -121,6 +94,24 @@ export const Hero: React.FC<HeroProps> = ({
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSearchSubmit(searchQuery, selectedCategory);
+  };
+
+  const renderHeading = () => {
+    const fullText = siteContent.hero.heading;
+    const highlight = siteContent.hero.headingHighlight;
+    if (!highlight || !fullText.includes(highlight)) {
+      return fullText;
+    }
+    const parts = fullText.split(highlight);
+    return (
+      <>
+        {parts[0]}
+        <span className="relative inline-block text-orange-500 underline decoration-orange-300 dark:decoration-orange-600 decoration-wavy underline-offset-8">
+          {highlight}
+        </span>
+        {parts.slice(1).join(highlight)}
+      </>
+    );
   };
 
   return (
@@ -150,7 +141,7 @@ export const Hero: React.FC<HeroProps> = ({
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-200/80 dark:border-orange-900/50 text-orange-700 dark:text-orange-300 text-xs sm:text-sm font-semibold shadow-xs mb-6"
             >
               <span className="text-base leading-none">🍽️</span>
-              <span>Trusted by Home Cooks Worldwide</span>
+              <span>{siteContent.hero.trustBadge}</span>
             </div>
 
             {/* Main Heading */}
@@ -158,11 +149,7 @@ export const Hero: React.FC<HeroProps> = ({
               id="hero-heading"
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111827] dark:text-white leading-[1.12] mb-6 font-display"
             >
-              Discover{' '}
-              <span className="relative inline-block text-orange-500 underline decoration-orange-300 dark:decoration-orange-600 decoration-wavy underline-offset-8">
-                Delicious
-              </span>{' '}
-              Recipes For Every Occasion
+              {renderHeading()}
             </h1>
 
             {/* Supporting Paragraph */}
@@ -170,9 +157,7 @@ export const Hero: React.FC<HeroProps> = ({
               id="hero-subtext"
               className="text-base sm:text-lg text-[#6B7280] dark:text-gray-300 leading-relaxed mb-8 max-w-2xl font-normal"
             >
-              Explore hundreds of easy-to-follow recipes made for busy families,
-              passionate home cooks, and food lovers. From quick weekday dinners to
-              impressive weekend meals, Savorly helps you cook with confidence every day.
+              {siteContent.hero.subtext}
             </p>
 
             {/* Modern Search Bar */}
@@ -190,7 +175,7 @@ export const Hero: React.FC<HeroProps> = ({
                     id="hero-search-input"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search recipes, ingredients, or cuisines..."
+                    placeholder={siteContent.hero.searchPlaceholder}
                     className="w-full bg-transparent border-none text-sm sm:text-base text-[#111827] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-0"
                   />
                 </div>
@@ -252,58 +237,38 @@ export const Hero: React.FC<HeroProps> = ({
                 </span>
                 {popularSearches.map((chip) => (
                   <button
-                    key={chip}
+                    key={chip.id}
                     type="button"
-                    onClick={() => handleChipClick(chip)}
+                    onClick={() => handleChipClick(chip.term)}
                     className="px-3 py-1 rounded-full text-xs font-medium bg-[#FAFAFA] dark:bg-neutral-800 text-[#111827] dark:text-gray-300 border border-[#E5E7EB] dark:border-neutral-700 hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-50/50 dark:hover:bg-neutral-700 transition-all duration-200 cursor-pointer shadow-2xs"
                   >
-                    {chip}
+                    {chip.term}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Statistics Row (4 Cards) */}
+            {/* Statistics Row */}
             <div id="hero-stats-grid" className="w-full max-w-2xl grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-4 border-t border-[#E5E7EB] dark:border-neutral-800 mt-2">
-              <div className="bg-[#FAFAFA] dark:bg-neutral-800/60 p-3.5 rounded-2xl border border-[#E5E7EB] dark:border-neutral-700/60 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-orange-100 dark:bg-orange-950/50 text-orange-600 dark:text-orange-400 flex items-center justify-center shrink-0">
-                  <UtensilsCrossed className="w-5 h-5 stroke-[2]" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-[#111827] dark:text-white leading-tight">500+</div>
-                  <div className="text-[11px] font-medium text-[#6B7280] dark:text-gray-400 leading-tight">Curated Recipes</div>
-                </div>
-              </div>
-
-              <div className="bg-[#FAFAFA] dark:bg-neutral-800/60 p-3.5 rounded-2xl border border-[#E5E7EB] dark:border-neutral-700/60 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
-                  <Grid className="w-5 h-5 stroke-[2]" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-[#111827] dark:text-white leading-tight">80+</div>
-                  <div className="text-[11px] font-medium text-[#6B7280] dark:text-gray-400 leading-tight">Recipe Categories</div>
-                </div>
-              </div>
-
-              <div className="bg-[#FAFAFA] dark:bg-neutral-800/60 p-3.5 rounded-2xl border border-[#E5E7EB] dark:border-neutral-700/60 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
-                  <Users className="w-5 h-5 stroke-[2]" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-[#111827] dark:text-white leading-tight">50K+</div>
-                  <div className="text-[11px] font-medium text-[#6B7280] dark:text-gray-400 leading-tight">Monthly Visitors</div>
-                </div>
-              </div>
-
-              <div className="bg-[#FAFAFA] dark:bg-neutral-800/60 p-3.5 rounded-2xl border border-[#E5E7EB] dark:border-neutral-700/60 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-green-100 dark:bg-green-950/50 text-[#15803D] dark:text-green-400 flex items-center justify-center shrink-0">
-                  <Star className="w-5 h-5 stroke-[2] fill-green-600/20 dark:fill-green-400/20" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-[#111827] dark:text-white leading-tight">4.9★</div>
-                  <div className="text-[11px] font-medium text-[#6B7280] dark:text-gray-400 leading-tight">Community Rating</div>
-                </div>
-              </div>
+              {stats.map((item) => {
+                const conf = STAT_CONFIG[item.icon] || {
+                  icon: UtensilsCrossed,
+                  bg: 'bg-orange-100 dark:bg-orange-950/50',
+                  text: 'text-orange-600 dark:text-orange-400',
+                };
+                const IconComponent = conf.icon;
+                return (
+                  <div key={item.id} className="bg-[#FAFAFA] dark:bg-neutral-800/60 p-3.5 rounded-2xl border border-[#E5E7EB] dark:border-neutral-700/60 flex items-center gap-3">
+                    <div className={`w-9 h-9 rounded-xl ${conf.bg} ${conf.text} flex items-center justify-center shrink-0`}>
+                      <IconComponent className={`w-5 h-5 stroke-[2] ${conf.fill || ''}`} />
+                    </div>
+                    <div>
+                      <div className="text-lg font-bold text-[#111827] dark:text-white leading-tight">{item.value}</div>
+                      <div className="text-[11px] font-medium text-[#6B7280] dark:text-gray-400 leading-tight">{item.label}</div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </motion.div>
 
@@ -323,8 +288,8 @@ export const Hero: React.FC<HeroProps> = ({
               {/* Main Image Card */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-neutral-800 bg-white dark:bg-neutral-800">
                 <img
-                  src={heroDishImg}
-                  alt="Gourmet Mediterranean Power Bowl"
+                  src={siteContent.hero.image}
+                  alt={siteContent.hero.imageAlt}
                   referrerPolicy="no-referrer"
                   className="w-full h-[380px] sm:h-[460px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
@@ -335,80 +300,84 @@ export const Hero: React.FC<HeroProps> = ({
                 {/* Image Badge */}
                 <div className="absolute bottom-4 left-4 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#111827] dark:text-white shadow-md flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-orange-500" />
-                  <span>Chef's Choice Platter</span>
+                  <span>{siteContent.hero.imageBadge}</span>
                 </div>
               </div>
 
               {/* FLOATING CARD ONE: Recipe of the Day (Top-Left Overlap) */}
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut' }}
-                onClick={() => onSelectRecipe(recipeOfDay)}
-                id="floating-card-recipe-of-day"
-                className="absolute -top-6 -left-4 sm:-left-8 bg-white/95 dark:bg-neutral-800/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 dark:border-neutral-700/80 max-w-[240px] sm:max-w-[270px] cursor-pointer hover:border-orange-300 dark:hover:border-orange-500 transition-all group/card z-20"
-              >
-                <div className="flex items-center gap-3">
-                  <img
-                    src={recipeOfDay.image}
-                    alt={recipeOfDay.title}
-                    referrerPolicy="no-referrer"
-                    className="w-12 h-12 rounded-xl object-cover shrink-0"
-                  />
-                  <div className="overflow-hidden">
-                    <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/60 text-[10px] font-bold text-amber-600 dark:text-amber-400 mb-1">
-                      <Award className="w-3 h-3" />
-                      <span>Recipe of the Day</span>
-                    </div>
-                    <h4 className="text-xs sm:text-sm font-bold text-[#111827] dark:text-white truncate group-hover/card:text-orange-500 transition-colors">
-                      {recipeOfDay.title}
-                    </h4>
-                    <div className="flex items-center gap-2 mt-0.5 text-[11px] text-[#6B7280] dark:text-gray-400">
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-orange-500" />
-                        Ready in 30 mins
-                      </span>
-                      <div className="flex items-center text-amber-400">
-                        <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                        <span className="ml-0.5 font-bold text-gray-700 dark:text-gray-300">5.0</span>
+              {recipeOfDay && (
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut' }}
+                  onClick={() => onSelectRecipe(recipeOfDay)}
+                  id="floating-card-recipe-of-day"
+                  className="absolute -top-6 -left-4 sm:-left-8 bg-white/95 dark:bg-neutral-800/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 dark:border-neutral-700/80 max-w-[240px] sm:max-w-[270px] cursor-pointer hover:border-orange-300 dark:hover:border-orange-500 transition-all group/card z-20"
+                >
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={recipeOfDay.image}
+                      alt={recipeOfDay.title}
+                      referrerPolicy="no-referrer"
+                      className="w-12 h-12 rounded-xl object-cover shrink-0"
+                    />
+                    <div className="overflow-hidden">
+                      <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/60 text-[10px] font-bold text-amber-600 dark:text-amber-400 mb-1">
+                        <Award className="w-3 h-3" />
+                        <span>Recipe of the Day</span>
+                      </div>
+                      <h4 className="text-xs sm:text-sm font-bold text-[#111827] dark:text-white truncate group-hover/card:text-orange-500 transition-colors">
+                        {recipeOfDay.title}
+                      </h4>
+                      <div className="flex items-center gap-2 mt-0.5 text-[11px] text-[#6B7280] dark:text-gray-400">
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3 h-3 text-orange-500" />
+                          Ready in 30 mins
+                        </span>
+                        <div className="flex items-center text-amber-400">
+                          <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                          <span className="ml-0.5 font-bold text-gray-700 dark:text-gray-300">{recipeOfDay.rating}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              )}
 
               {/* FLOATING CARD TWO: Trending This Week (Bottom-Right Overlap) */}
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 5.2, ease: 'easeInOut', delay: 0.5 }}
-                onClick={() => onSelectRecipe(recipeTrending)}
-                id="floating-card-trending"
-                className="absolute -bottom-6 -right-4 sm:-right-8 bg-white/95 dark:bg-neutral-800/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 dark:border-neutral-700/80 max-w-[240px] sm:max-w-[270px] cursor-pointer hover:border-orange-300 dark:hover:border-orange-500 transition-all group/card z-20"
-              >
-                <div className="flex items-center gap-3">
-                  <img
-                    src={recipeTrending.image}
-                    alt={recipeTrending.title}
-                    referrerPolicy="no-referrer"
-                    className="w-12 h-12 rounded-xl object-cover shrink-0"
-                  />
-                  <div className="overflow-hidden">
-                    <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-orange-50 dark:bg-orange-950/60 text-[10px] font-bold text-orange-600 dark:text-orange-400 mb-1">
-                      <Flame className="w-3 h-3 fill-orange-500 text-orange-500" />
-                      <span>Trending This Week</span>
-                    </div>
-                    <h4 className="text-xs sm:text-sm font-bold text-[#111827] dark:text-white truncate group-hover/card:text-orange-500 transition-colors">
-                      {recipeTrending.title}
-                    </h4>
-                    <div className="flex items-center gap-2 mt-0.5 text-[11px] text-[#6B7280] dark:text-gray-400">
-                      <span className="flex items-center gap-1">
-                        <Eye className="w-3 h-3 text-orange-500" />
-                        12.4K views
-                      </span>
-                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold">• Easy</span>
+              {recipeTrending && (
+                <motion.div
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ repeat: Infinity, duration: 5.2, ease: 'easeInOut', delay: 0.5 }}
+                  onClick={() => onSelectRecipe(recipeTrending)}
+                  id="floating-card-trending"
+                  className="absolute -bottom-6 -right-4 sm:-right-8 bg-white/95 dark:bg-neutral-800/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 dark:border-neutral-700/80 max-w-[240px] sm:max-w-[270px] cursor-pointer hover:border-orange-300 dark:hover:border-orange-500 transition-all group/card z-20"
+                >
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={recipeTrending.image}
+                      alt={recipeTrending.title}
+                      referrerPolicy="no-referrer"
+                      className="w-12 h-12 rounded-xl object-cover shrink-0"
+                    />
+                    <div className="overflow-hidden">
+                      <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-orange-50 dark:bg-orange-950/60 text-[10px] font-bold text-orange-600 dark:text-orange-400 mb-1">
+                        <Flame className="w-3 h-3 fill-orange-500 text-orange-500" />
+                        <span>Trending This Week</span>
+                      </div>
+                      <h4 className="text-xs sm:text-sm font-bold text-[#111827] dark:text-white truncate group-hover/card:text-orange-500 transition-colors">
+                        {recipeTrending.title}
+                      </h4>
+                      <div className="flex items-center gap-2 mt-0.5 text-[11px] text-[#6B7280] dark:text-gray-400">
+                        <span className="flex items-center gap-1">
+                          <Eye className="w-3 h-3 text-orange-500" />
+                          {recipeTrending.views} views
+                        </span>
+                        <span className="text-emerald-600 dark:text-emerald-400 font-semibold">• {recipeTrending.difficulty}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              )}
 
             </div>
           </motion.div>

@@ -1,0 +1,518 @@
+{
+  "seo": {
+    "title": "Savorly - Premium Recipe & Culinary Landing Experience",
+    "description": "Premium recipe website and culinary landing experience with search, curated recipes, and interactive food discovery.",
+    "openGraphImage": "/images/savorly_hero_dish_1785418456470.jpg"
+  },
+  "navigation": {
+    "logoText": "Savorly",
+    "logoTagline": "Cook with confidence",
+    "ctaLabel": "Browse Recipes",
+    "ctaLink": "#recipes-section",
+    "links": [
+      {
+        "id": "nav-home",
+        "label": "Home",
+        "targetId": "home",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "id": "nav-recipes",
+        "label": "Recipes",
+        "targetId": "recipes",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "id": "nav-categories",
+        "label": "Categories",
+        "targetId": "categories",
+        "visible": true,
+        "order": 3
+      },
+      {
+        "id": "nav-about",
+        "label": "About",
+        "targetId": "about",
+        "visible": true,
+        "order": 4
+      },
+      {
+        "id": "nav-contact",
+        "label": "Contact",
+        "targetId": "contact",
+        "visible": true,
+        "order": 5
+      }
+    ]
+  },
+  "hero": {
+    "trustBadge": "Trusted by Home Cooks Worldwide",
+    "heading": "Discover Delicious Recipes For Every Occasion",
+    "headingHighlight": "Delicious",
+    "subtext": "Explore hundreds of easy-to-follow recipes made for busy families, passionate home cooks, and food lovers. From quick weekday dinners to impressive weekend meals, Savorly helps you cook with confidence every day.",
+    "searchPlaceholder": "Search recipes, ingredients, or cuisines...",
+    "image": "/images/savorly_hero_dish_1785418456470.jpg",
+    "imageAlt": "Gourmet Mediterranean Power Bowl",
+    "imageBadge": "Chef's Choice Platter",
+    "popularSearches": [
+      { "id": "pop-1", "term": "Chicken Alfredo", "visible": true, "order": 1 },
+      { "id": "pop-2", "term": "Pasta", "visible": true, "order": 2 },
+      { "id": "pop-3", "term": "Chocolate Cake", "visible": true, "order": 3 },
+      { "id": "pop-4", "term": "Smoothies", "visible": true, "order": 4 },
+      { "id": "pop-5", "term": "Salads", "visible": true, "order": 5 }
+    ],
+    "stats": [
+      {
+        "id": "stat-1",
+        "value": "500+",
+        "label": "Curated Recipes",
+        "icon": "UtensilsCrossed",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "id": "stat-2",
+        "value": "80+",
+        "label": "Recipe Categories",
+        "icon": "Grid",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "id": "stat-3",
+        "value": "50K+",
+        "label": "Monthly Visitors",
+        "icon": "Users",
+        "visible": true,
+        "order": 3
+      },
+      {
+        "id": "stat-4",
+        "value": "4.9★",
+        "label": "Community Rating",
+        "icon": "Star",
+        "visible": true,
+        "order": 4
+      }
+    ]
+  },
+  "categoriesSection": {
+    "heading": "Explore Popular Categories",
+    "subtext": "Whether you want a quick 15-minute meal or an extravagant weekend bake, we have you covered.",
+    "categories": [
+      {
+        "id": "cat-breakfast",
+        "categoryId": "Breakfast",
+        "name": "Breakfast & Brunch",
+        "count": "42 Recipes",
+        "icon": "Coffee",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "id": "cat-lunch",
+        "categoryId": "Lunch",
+        "name": "Quick Lunches",
+        "count": "58 Recipes",
+        "icon": "Sun",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "id": "cat-dinner",
+        "categoryId": "Dinner",
+        "name": "Gourmet Dinners",
+        "count": "95 Recipes",
+        "icon": "Utensils",
+        "visible": true,
+        "order": 3
+      },
+      {
+        "id": "cat-desserts",
+        "categoryId": "Desserts",
+        "name": "Sweet Desserts",
+        "count": "34 Recipes",
+        "icon": "Cake",
+        "visible": true,
+        "order": 4
+      },
+      {
+        "id": "cat-healthy",
+        "categoryId": "Healthy",
+        "name": "Healthy & Light",
+        "count": "76 Recipes",
+        "icon": "Heart",
+        "visible": true,
+        "order": 5
+      },
+      {
+        "id": "cat-vegetarian",
+        "categoryId": "Vegetarian",
+        "name": "Vegetarian Delights",
+        "count": "60 Recipes",
+        "icon": "Leaf",
+        "visible": true,
+        "order": 6
+      }
+    ]
+  },
+  "recipesSection": {
+    "badge": "Handcrafted Recipes",
+    "heading": "Explore Our Recipe Collection",
+    "subtext": "Find step-by-step culinary inspiration tailored for your table.",
+    "emptyHeading": "No matching recipes found",
+    "emptyMessage": "We couldn't find recipes matching your search. Try searching for pasta, chicken, salmon, or resetting your filter.",
+    "clearFiltersLabel": "Reset All Filters"
+  },
+  "recipes": [
+    {
+      "id": "rec-1",
+      "title": "Creamy Garlic Tuscan Chicken",
+      "description": "Tender chicken breasts seared to golden perfection, simmered in a luscious garlic cream sauce with sun-dried tomatoes and fresh baby spinach.",
+      "category": "Dinner",
+      "prepTime": "10 mins",
+      "cookTime": "20 mins",
+      "servings": 4,
+      "calories": 480,
+      "difficulty": "Easy",
+      "rating": 5.0,
+      "reviewsCount": 342,
+      "views": "24.8K",
+      "image": "/images/tuscan_chicken_1785418467629.jpg",
+      "isRecipeOfDay": true,
+      "isTrending": false,
+      "isPopular": true,
+      "visible": true,
+      "order": 1,
+      "ingredients": [
+        "2 large boneless chicken breasts, halved horizontally",
+        "2 tbsp olive oil & 1 tbsp butter",
+        "4 cloves garlic, minced",
+        "1 cup heavy cream or full-fat coconut milk",
+        "1/2 cup chicken broth or bone broth",
+        "1/2 cup sun-dried tomatoes, drained and sliced",
+        "2 cups fresh baby spinach leaves",
+        "1/2 cup freshly grated Parmesan cheese",
+        "1 tsp Italian seasoning, salt, and freshly cracked black pepper"
+      ],
+      "instructions": [
+        "Season chicken breasts evenly with salt, pepper, and Italian seasoning on both sides.",
+        "Heat oil and butter in a large heavy skillet over medium-high heat. Sear chicken 5-6 mins per side until golden brown. Remove and set aside.",
+        "In the same skillet, add minced garlic and saute for 1 minute until fragrant.",
+        "Pour in chicken broth, heavy cream, and sun-dried tomatoes. Bring to a gentle simmer for 3 minutes.",
+        "Stir in grated Parmesan and fresh baby spinach until spinach is wilted and sauce is silky.",
+        "Return chicken breasts to the pan, spooning sauce over top. Simmer 2 more minutes and serve warm with crusty bread or pasta."
+      ],
+      "chefNote": "For extra depth of flavor, use the reserved oil from the sun-dried tomato jar when searing the chicken.",
+      "tags": ["30 Mins", "Keto Friendly", "Creamy", "Italian"]
+    },
+    {
+      "id": "rec-2",
+      "title": "One-Pan Lemon Herb Salmon",
+      "description": "Flaky salmon fillets baked on a single sheet pan with lemon, fresh rosemary, garlic, and crisp asparagus spears.",
+      "category": "Healthy",
+      "prepTime": "10 mins",
+      "cookTime": "15 mins",
+      "servings": 2,
+      "calories": 420,
+      "difficulty": "Easy",
+      "rating": 4.9,
+      "reviewsCount": 289,
+      "views": "12.4K",
+      "image": "/images/lemon_herb_salmon_1785418479888.jpg",
+      "isRecipeOfDay": false,
+      "isTrending": true,
+      "isPopular": true,
+      "visible": true,
+      "order": 2,
+      "ingredients": [
+        "2 fresh salmon fillets (skin-on)",
+        "1 bunch fresh asparagus, trimmed",
+        "2 tbsp extra virgin olive oil",
+        "1 fresh lemon, thinly sliced",
+        "3 cloves garlic, crushed",
+        "1 tbsp fresh rosemary & thyme, finely chopped",
+        "Sea salt and freshly ground black pepper to taste"
+      ],
+      "instructions": [
+        "Preheat oven to 400°F (200°C) and line a rimmed baking sheet with parchment paper.",
+        "Arrange asparagus spears on one side of sheet pan. Toss with 1 tbsp olive oil, minced garlic, salt, and pepper.",
+        "Place salmon fillets skin-side down on the other side. Drizzle with remaining olive oil, sprinkle with herbs, salt, and top with lemon slices.",
+        "Roast in the oven for 12–15 minutes until salmon is flaky and asparagus is tender-crisp.",
+        "Garnish with extra fresh parsley and squeeze fresh lemon juice right before serving."
+      ],
+      "chefNote": "Wild-caught salmon works best for rich Omega-3 content and crisp skin texture.",
+      "tags": ["One-Pan", "Low Carb", "High Protein", "Seafood"]
+    },
+    {
+      "id": "rec-3",
+      "title": "Classic Chicken Alfredo Pasta",
+      "description": "Silky fettuccine tossed in a homemade Parmigiano-Reggiano sauce topped with grilled herb chicken slices.",
+      "category": "Lunch",
+      "prepTime": "15 mins",
+      "cookTime": "15 mins",
+      "servings": 4,
+      "calories": 620,
+      "difficulty": "Medium",
+      "rating": 4.8,
+      "reviewsCount": 512,
+      "views": "32.1K",
+      "image": "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=1200&q=80",
+      "isRecipeOfDay": false,
+      "isTrending": false,
+      "isPopular": true,
+      "visible": true,
+      "order": 3,
+      "ingredients": [
+        "12 oz fettuccine pasta",
+        "2 grilled chicken breasts, sliced",
+        "1/2 cup unsalted butter",
+        "1 cup heavy cream",
+        "1.5 cups freshly grated Parmesan",
+        "2 cloves garlic, minced",
+        "Fresh parsley & cracked black pepper"
+      ],
+      "instructions": [
+        "Boil fettuccine in salted water until al dente. Reserve 1/2 cup pasta water.",
+        "Melt butter in a skillet, add garlic and cook 1 minute. Whisk in heavy cream and simmer 2 minutes.",
+        "Reduce heat to low and gradually stir in Parmesan cheese until completely smooth.",
+        "Toss warm pasta into the sauce, adding pasta water as needed for silky coating. Top with sliced grilled chicken."
+      ],
+      "chefNote": "Always grate Parmesan from a fresh block to avoid anti-caking clumping.",
+      "tags": ["Pasta", "Comfort Food", "Chicken", "Italian"]
+    },
+    {
+      "id": "rec-4",
+      "title": "Decadent Molten Chocolate Cake",
+      "description": "Rich warm dark chocolate cake with a velvety molten lava center, served with fresh raspberries and vanilla bean ice cream.",
+      "category": "Desserts",
+      "prepTime": "15 mins",
+      "cookTime": "12 mins",
+      "servings": 2,
+      "calories": 510,
+      "difficulty": "Medium",
+      "rating": 4.9,
+      "reviewsCount": 418,
+      "views": "18.9K",
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1200&q=80",
+      "isRecipeOfDay": false,
+      "isTrending": false,
+      "isPopular": true,
+      "visible": true,
+      "order": 4,
+      "ingredients": [
+        "4 oz high-quality dark chocolate (70%)",
+        "1/2 cup unsalted butter",
+        "2 whole eggs + 2 egg yolks",
+        "1/4 cup granulated sugar",
+        "2 tbsp all-purpose flour",
+        "Pinch of sea salt & powdered sugar for dusting"
+      ],
+      "instructions": [
+        "Preheat oven to 425°F (220°C). Butter two ramekins and dust with cocoa powder.",
+        "Melt dark chocolate and butter together in a heatproof bowl set over simmering water until smooth.",
+        "In a separate bowl, whisk eggs, egg yolks, and sugar until pale and fluffy. Fold into chocolate mixture.",
+        "Lightly fold in flour and salt. Divide batter into ramekins and bake 12 minutes.",
+        "Let sit 1 minute, invert onto dessert plates, dust with powdered sugar and serve immediately."
+      ],
+      "chefNote": "Bake time is key — center should still be soft and jiggly when removed from oven.",
+      "tags": ["Chocolate", "Dessert", "Date Night", "Baking"]
+    },
+    {
+      "id": "rec-5",
+      "title": "Tropical Green Power Smoothie",
+      "description": "A refreshing energy boost blend of fresh spinach, frozen mango, pineapple, coconut water, and chia seeds.",
+      "category": "Breakfast",
+      "prepTime": "5 mins",
+      "cookTime": "0 mins",
+      "servings": 2,
+      "calories": 190,
+      "difficulty": "Easy",
+      "rating": 4.8,
+      "reviewsCount": 175,
+      "views": "15.3K",
+      "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec?auto=format&fit=crop&w=1200&q=80",
+      "isRecipeOfDay": false,
+      "isTrending": false,
+      "isPopular": true,
+      "visible": true,
+      "order": 5,
+      "ingredients": [
+        "2 cups fresh organic spinach",
+        "1 cup frozen mango chunks",
+        "1/2 cup frozen pineapple pieces",
+        "1 cup chilled coconut water",
+        "1 tbsp chia seeds",
+        "1/2 cup Greek yogurt or almond yogurt"
+      ],
+      "instructions": [
+        "Add chilled coconut water and spinach into high-speed blender first.",
+        "Blend on high for 30 seconds until completely liquid and vibrant green.",
+        "Add frozen mango, pineapple, Greek yogurt, and chia seeds.",
+        "Blend until velvety smooth and creamy. Pour into chilled glasses and top with extra chia seeds."
+      ],
+      "chefNote": "Blending greens with liquid first guarantees zero leafy specks in your smoothie!",
+      "tags": ["Smoothie", "Detox", "Vegan", "Quick"]
+    },
+    {
+      "id": "rec-6",
+      "title": "Avocado & Burrata Mediterranean Salad",
+      "description": "Creamy artisan burrata cheese, ripe avocados, heirloom tomatoes, and crisp cucumbers tossed in lemon herb vinaigrette.",
+      "category": "Vegetarian",
+      "prepTime": "10 mins",
+      "cookTime": "0 mins",
+      "servings": 3,
+      "calories": 310,
+      "difficulty": "Easy",
+      "rating": 4.9,
+      "reviewsCount": 210,
+      "views": "21.5K",
+      "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80",
+      "isRecipeOfDay": false,
+      "isTrending": false,
+      "isPopular": true,
+      "visible": true,
+      "order": 6,
+      "ingredients": [
+        "1 ball fresh Burrata cheese",
+        "2 ripe avocados, sliced",
+        "2 cups mixed heirloom cherry tomatoes",
+        "1 English cucumber, sliced",
+        "Fresh basil leaves",
+        "3 tbsp extra virgin olive oil",
+        "1 tbsp aged balsamic glaze & sea salt flakes"
+      ],
+      "instructions": [
+        "Arrange sliced tomatoes, cucumber, and avocado slices across a serving platter.",
+        "Tear burrata gently and place in the center of the platter.",
+        "Scatter fresh basil leaves liberally over vegetables.",
+        "Drizzle with extra virgin olive oil, balsamic glaze, and garnish with coarse sea salt flakes."
+      ],
+      "chefNote": "Bring burrata to room temperature 20 minutes before serving for maximum creamy texture.",
+      "tags": ["Salad", "Vegetarian", "No-Cook", "Fresh"]
+    },
+    {
+      "id": "rec-7",
+      "title": "Gourmet Mediterranean Power Bowl",
+      "description": "A vibrant bowl with fluffy quinoa, spiced chickpeas, roasted sweet potato, creamy tzatziki, and tahini drizzle.",
+      "category": "Healthy",
+      "prepTime": "15 mins",
+      "cookTime": "20 mins",
+      "servings": 2,
+      "calories": 450,
+      "difficulty": "Easy",
+      "rating": 4.9,
+      "reviewsCount": 315,
+      "views": "29.7K",
+      "image": "/images/savorly_hero_dish_1785418456470.jpg",
+      "isRecipeOfDay": false,
+      "isTrending": false,
+      "isPopular": true,
+      "visible": true,
+      "order": 7,
+      "ingredients": [
+        "1 cup cooked quinoa",
+        "1 cup crispy roasted chickpeas",
+        "1 sweet potato, cubed and roasted",
+        "1/2 cup diced cucumber and red onion",
+        "1/4 cup tzatziki or hummus",
+        "2 tbsp lemon tahini dressing"
+      ],
+      "instructions": [
+        "Divide warm quinoa between two wide serving bowls.",
+        "Arrange sections of roasted sweet potatoes, crispy chickpeas, cucumbers, and red onion.",
+        "Dollop tzatziki in center and drizzle generously with lemon tahini dressing.",
+        "Garnish with toasted pumpkin seeds and fresh parsley."
+      ],
+      "chefNote": "Meal prep secret: Roast sweet potatoes and chickpeas ahead of time for a 5-minute lunch assembly.",
+      "tags": ["Meal Prep", "High Fiber", "Vegan Option", "Bowl"]
+    }
+  ],
+  "aboutSection": {
+    "badge": "About Savorly",
+    "heading": "Our Mission: Bring Joy Back to Everyday Cooking",
+    "description": "At Savorly, we believe that cooking shouldn't feel like a chore. Whether you're a beginner trying your first pasta sauce or an experienced foodie hosting weekend dinner parties, our curated recipes are tested and perfected to work every single time.",
+    "quote": "\"Cook with confidence. Eat with joy.\"",
+    "quoteAuthor": "— Savorly Culinary Team",
+    "features": [
+      {
+        "id": "about-feat-1",
+        "title": "Triple-Tested Recipe Accuracy",
+        "description": "Every measurement and temperature is rigorously verified in real home kitchens.",
+        "icon": "ShieldCheck",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "id": "about-feat-2",
+        "title": "Home Cook Community Driven",
+        "description": "Over 50,000 home cooks leave authentic ratings, reviews, and ingredient swaps daily.",
+        "icon": "HeartHandshake",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "id": "about-feat-3",
+        "title": "Zero Waste & Ingredient Tips",
+        "description": "Chef tips and substitute options ensure you use what is already in your pantry.",
+        "icon": "Sparkles",
+        "visible": true,
+        "order": 3
+      }
+    ],
+    "stats": [
+      {
+        "id": "about-stat-1",
+        "value": "100%",
+        "label": "Tested Recipes",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "id": "about-stat-2",
+        "value": "15 Min",
+        "label": "Avg Prep Option",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "id": "about-stat-3",
+        "value": "4.9/5",
+        "label": "User Rating",
+        "visible": true,
+        "order": 3
+      }
+    ]
+  },
+  "footer": {
+    "brandName": "Savorly",
+    "brandDescription": "Cook with confidence. Eat with joy. Inspiring home cooks around the world with healthy, reliable, and irresistible recipes every single day.",
+    "newsletter": {
+      "heading": "Join Our Weekly Recipe Digest",
+      "placeholder": "Enter your email address...",
+      "successMessage": "✓ Thanks for subscribing! Check your inbox soon."
+    },
+    "quickLinks": [
+      { "id": "ql-1", "label": "Home", "url": "#hero-section", "visible": true, "order": 1 },
+      { "id": "ql-2", "label": "Browse Recipes", "url": "#recipes-section", "visible": true, "order": 2 },
+      { "id": "ql-3", "label": "Categories", "url": "#categories-section", "visible": true, "order": 3 },
+      { "id": "ql-4", "label": "Our Story", "url": "#about-section", "visible": true, "order": 4 }
+    ],
+    "cuisines": [
+      { "id": "cuis-1", "label": "Italian Classics", "url": "#", "visible": true, "order": 1 },
+      { "id": "cuis-2", "label": "Mediterranean Bowls", "url": "#", "visible": true, "order": 2 },
+      { "id": "cuis-3", "label": "30-Minute Dinners", "url": "#", "visible": true, "order": 3 },
+      { "id": "cuis-4", "label": "Keto & Low Carb", "url": "#", "visible": true, "order": 4 }
+    ],
+    "socialLinks": [
+      { "id": "soc-1", "platform": "Instagram", "url": "#", "visible": true, "order": 1 },
+      { "id": "soc-2", "platform": "Facebook", "url": "#", "visible": true, "order": 2 },
+      { "id": "soc-3", "platform": "Twitter", "url": "#", "visible": true, "order": 3 },
+      { "id": "soc-4", "platform": "Youtube", "url": "#", "visible": true, "order": 4 }
+    ],
+    "copyright": "Savorly Inc. All rights reserved.",
+    "tagline": "for food lovers everywhere."
+  }
+}

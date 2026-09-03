@@ -10,6 +10,7 @@ import {
   ArrowUpDown
 } from 'lucide-react';
 import { CategoryType, Recipe } from '../types';
+import siteContent from '../data/siteContent.json';
 
 interface RecipeGridProps {
   recipes: Recipe[];
@@ -34,15 +35,13 @@ export const RecipeGrid: React.FC<RecipeGridProps> = ({
 }) => {
   const [sortBy, setSortBy] = useState<'rating' | 'prep' | 'views'>('rating');
 
-  const categories: CategoryType[] = [
-    'All',
-    'Breakfast',
-    'Lunch',
-    'Dinner',
-    'Desserts',
-    'Healthy',
-    'Vegetarian'
-  ];
+  const categories: CategoryType[] = useMemo(() => {
+    const fromCategories = siteContent.categoriesSection.categories
+      .filter((c) => c.visible !== false)
+      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+      .map((c) => c.categoryId as CategoryType);
+    return ['All', ...fromCategories];
+  }, []);
 
   const filteredRecipes = useMemo(() => {
     return recipes
@@ -76,13 +75,13 @@ export const RecipeGrid: React.FC<RecipeGridProps> = ({
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-950/50 text-orange-600 dark:text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Handcrafted Recipes</span>
+              <span>{siteContent.recipesSection.badge}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] dark:text-white font-display">
-              Explore Our Recipe Collection
+              {siteContent.recipesSection.heading}
             </h2>
             <p className="text-[#6B7280] dark:text-gray-400 text-sm sm:text-base mt-1">
-              Find step-by-step culinary inspiration tailored for your table.
+              {siteContent.recipesSection.subtext}
             </p>
           </div>
 
@@ -240,19 +239,21 @@ export const RecipeGrid: React.FC<RecipeGridProps> = ({
           <div className="text-center py-16 bg-white dark:bg-neutral-800 rounded-3xl border border-gray-100 dark:border-neutral-700 p-8">
             <Search className="w-12 h-12 text-gray-300 dark:text-neutral-600 mx-auto mb-3" />
             <h3 className="text-lg font-bold text-[#111827] dark:text-white mb-1">
-              No matching recipes found
+              {siteContent.recipesSection.emptyHeading}
             </h3>
             <p className="text-sm text-[#6B7280] dark:text-gray-400 max-w-md mx-auto mb-4">
-              We couldn't find recipes matching "{searchQuery}". Try searching for pasta, chicken, salmon, or resetting your filter.
+              {searchQuery
+                ? `We couldn't find recipes matching "${searchQuery}". Try searching for pasta, chicken, salmon, or resetting your filter.`
+                : siteContent.recipesSection.emptyMessage}
             </p>
             <button
               onClick={() => {
                 setSearchQuery('');
                 setSelectedCategory('All');
               }}
-              className="px-5 py-2.5 bg-orange-500 text-white font-medium text-xs sm:text-sm rounded-full shadow-md"
+              className="px-5 py-2.5 bg-orange-500 text-white font-medium text-xs sm:text-sm rounded-full shadow-md cursor-pointer"
             >
-              Reset All Filters
+              {siteContent.recipesSection.clearFiltersLabel}
             </button>
           </div>
         )}

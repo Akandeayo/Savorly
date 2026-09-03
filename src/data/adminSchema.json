@@ -1,0 +1,713 @@
+{
+  "version": 1,
+  "sections": [
+    {
+      "id": "seo",
+      "label": "SEO & Meta Settings",
+      "contentPath": "seo",
+      "fields": [
+        {
+          "key": "title",
+          "label": "SEO Page Title",
+          "type": "text"
+        },
+        {
+          "key": "description",
+          "label": "SEO Meta Description",
+          "type": "textarea"
+        },
+        {
+          "key": "openGraphImage",
+          "label": "OpenGraph Social Share Image",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "label": "Header Navigation",
+      "contentPath": "navigation",
+      "fields": [
+        {
+          "key": "logoText",
+          "label": "Logo Text",
+          "type": "text"
+        },
+        {
+          "key": "logoTagline",
+          "label": "Logo Tagline",
+          "type": "text"
+        },
+        {
+          "key": "ctaLabel",
+          "label": "CTA Button Label",
+          "type": "text"
+        },
+        {
+          "key": "ctaLink",
+          "label": "CTA Button Destination",
+          "type": "text"
+        },
+        {
+          "key": "links",
+          "label": "Navigation Links",
+          "type": "array",
+          "itemLabel": "Nav Link",
+          "allowAdd": true,
+          "allowDelete": true,
+          "allowReorder": true,
+          "fields": [
+            {
+              "key": "id",
+              "label": "Unique ID",
+              "type": "text"
+            },
+            {
+              "key": "label",
+              "label": "Link Label",
+              "type": "text"
+            },
+            {
+              "key": "targetId",
+              "label": "Section Target ID",
+              "type": "select",
+              "options": [
+                { "label": "Home Section", "value": "home" },
+                { "label": "Recipes Section", "value": "recipes" },
+                { "label": "Categories Section", "value": "categories" },
+                { "label": "About Section", "value": "about" },
+                { "label": "Contact / Footer Section", "value": "contact" }
+              ]
+            },
+            {
+              "key": "visible",
+              "label": "Visible",
+              "type": "boolean"
+            },
+            {
+              "key": "order",
+              "label": "Display Order",
+              "type": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hero",
+      "label": "Hero Section",
+      "contentPath": "hero",
+      "fields": [
+        {
+          "key": "trustBadge",
+          "label": "Trust Badge Text",
+          "type": "text"
+        },
+        {
+          "key": "heading",
+          "label": "Main Headline",
+          "type": "text"
+        },
+        {
+          "key": "headingHighlight",
+          "label": "Accent / Highlight Word in Headline",
+          "type": "text"
+        },
+        {
+          "key": "subtext",
+          "label": "Sub-headline Paragraph",
+          "type": "textarea"
+        },
+        {
+          "key": "searchPlaceholder",
+          "label": "Search Input Placeholder",
+          "type": "text"
+        },
+        {
+          "key": "image",
+          "label": "Featured Platter Image",
+          "type": "image"
+        },
+        {
+          "key": "imageAlt",
+          "label": "Featured Image Alt Text",
+          "type": "text"
+        },
+        {
+          "key": "imageBadge",
+          "label": "Featured Image Floating Badge",
+          "type": "text"
+        },
+        {
+          "key": "popularSearches",
+          "label": "Popular Search Suggestions",
+          "type": "array",
+          "itemLabel": "Search Chip",
+          "allowAdd": true,
+          "allowDelete": true,
+          "allowReorder": true,
+          "fields": [
+            {
+              "key": "id",
+              "label": "ID",
+              "type": "text"
+            },
+            {
+              "key": "term",
+              "label": "Search Query Term",
+              "type": "text"
+            },
+            {
+              "key": "visible",
+              "label": "Visible",
+              "type": "boolean"
+            },
+            {
+              "key": "order",
+              "label": "Order",
+              "type": "number"
+            }
+          ]
+        },
+        {
+          "key": "stats",
+          "label": "Key Statistics Highlights",
+          "type": "array",
+          "itemLabel": "Statistic Card",
+          "allowAdd": true,
+          "allowDelete": true,
+          "allowReorder": true,
+          "fields": [
+            {
+              "key": "id",
+              "label": "ID",
+              "type": "text"
+            },
+            {
+              "key": "value",
+              "label": "Metric Value (e.g. 500+)",
+              "type": "text"
+            },
+            {
+              "key": "label",
+              "label": "Metric Label",
+              "type": "text"
+            },
+            {
+              "key": "icon",
+              "label": "Icon",
+              "type": "select",
+              "options": [
+                { "label": "UtensilsCrossed", "value": "UtensilsCrossed" },
+                { "label": "Grid", "value": "Grid" },
+                { "label": "Users", "value": "Users" },
+                { "label": "Star", "value": "Star" }
+              ]
+            },
+            {
+              "key": "visible",
+              "label": "Visible",
+              "type": "boolean"
+            },
+            {
+              "key": "order",
+              "label": "Order",
+              "type": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "categoriesSection",
+      "label": "Categories Section",
+      "contentPath": "categoriesSection",
+      "fields": [
+        {
+          "key": "heading",
+          "label": "Section Heading",
+          "type": "text"
+        },
+        {
+          "key": "subtext",
+          "label": "Section Subtext",
+          "type": "textarea"
+        },
+        {
+          "key": "categories",
+          "label": "Category Tiles",
+          "type": "array",
+          "itemLabel": "Category Tile",
+          "allowAdd": true,
+          "allowDelete": true,
+          "allowReorder": true,
+          "fields": [
+            {
+              "key": "id",
+              "label": "Tile ID",
+              "type": "text"
+            },
+            {
+              "key": "categoryId",
+              "label": "Filter Category",
+              "type": "select",
+              "options": [
+                { "label": "Breakfast", "value": "Breakfast" },
+                { "label": "Lunch", "value": "Lunch" },
+                { "label": "Dinner", "value": "Dinner" },
+                { "label": "Desserts", "value": "Desserts" },
+                { "label": "Healthy", "value": "Healthy" },
+                { "label": "Vegetarian", "value": "Vegetarian" }
+              ]
+            },
+            {
+              "key": "name",
+              "label": "Display Name",
+              "type": "text"
+            },
+            {
+              "key": "count",
+              "label": "Recipe Count Text",
+              "type": "text"
+            },
+            {
+              "key": "icon",
+              "label": "Icon",
+              "type": "select",
+              "options": [
+                { "label": "Coffee", "value": "Coffee" },
+                { "label": "Sun", "value": "Sun" },
+                { "label": "Utensils", "value": "Utensils" },
+                { "label": "Cake", "value": "Cake" },
+                { "label": "Heart", "value": "Heart" },
+                { "label": "Leaf", "value": "Leaf" }
+              ]
+            },
+            {
+              "key": "visible",
+              "label": "Visible",
+              "type": "boolean"
+            },
+            {
+              "key": "order",
+              "label": "Order",
+              "type": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recipesSection",
+      "label": "Recipes Section Header & Search UI",
+      "contentPath": "recipesSection",
+      "fields": [
+        {
+          "key": "badge",
+          "label": "Section Badge",
+          "type": "text"
+        },
+        {
+          "key": "heading",
+          "label": "Section Title",
+          "type": "text"
+        },
+        {
+          "key": "subtext",
+          "label": "Section Description",
+          "type": "textarea"
+        },
+        {
+          "key": "emptyHeading",
+          "label": "Empty State Title",
+          "type": "text"
+        },
+        {
+          "key": "emptyMessage",
+          "label": "Empty State Message",
+          "type": "textarea"
+        },
+        {
+          "key": "clearFiltersLabel",
+          "label": "Reset Button Label",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "recipes",
+      "label": "Recipe Catalog",
+      "contentPath": "recipes",
+      "type": "array",
+      "itemLabel": "Recipe",
+      "allowAdd": true,
+      "allowDelete": true,
+      "allowReorder": true,
+      "fields": [
+        {
+          "key": "id",
+          "label": "Recipe ID",
+          "type": "text"
+        },
+        {
+          "key": "title",
+          "label": "Recipe Title",
+          "type": "text"
+        },
+        {
+          "key": "description",
+          "label": "Recipe Description",
+          "type": "textarea"
+        },
+        {
+          "key": "category",
+          "label": "Category",
+          "type": "select",
+          "options": [
+            { "label": "Breakfast", "value": "Breakfast" },
+            { "label": "Lunch", "value": "Lunch" },
+            { "label": "Dinner", "value": "Dinner" },
+            { "label": "Desserts", "value": "Desserts" },
+            { "label": "Healthy", "value": "Healthy" },
+            { "label": "Vegetarian", "value": "Vegetarian" }
+          ]
+        },
+        {
+          "key": "image",
+          "label": "Recipe Photograph",
+          "type": "image"
+        },
+        {
+          "key": "prepTime",
+          "label": "Preparation Time",
+          "type": "text"
+        },
+        {
+          "key": "cookTime",
+          "label": "Cooking Time",
+          "type": "text"
+        },
+        {
+          "key": "servings",
+          "label": "Servings",
+          "type": "number"
+        },
+        {
+          "key": "calories",
+          "label": "Calories (kcal)",
+          "type": "number"
+        },
+        {
+          "key": "difficulty",
+          "label": "Difficulty",
+          "type": "select",
+          "options": [
+            { "label": "Easy", "value": "Easy" },
+            { "label": "Medium", "value": "Medium" },
+            { "label": "Hard", "value": "Hard" }
+          ]
+        },
+        {
+          "key": "rating",
+          "label": "Star Rating (0-5)",
+          "type": "number"
+        },
+        {
+          "key": "reviewsCount",
+          "label": "Review Count",
+          "type": "number"
+        },
+        {
+          "key": "views",
+          "label": "View Count Display",
+          "type": "text"
+        },
+        {
+          "key": "isRecipeOfDay",
+          "label": "Featured as Recipe of the Day",
+          "type": "boolean"
+        },
+        {
+          "key": "isTrending",
+          "label": "Mark as Trending This Week",
+          "type": "boolean"
+        },
+        {
+          "key": "isPopular",
+          "label": "Mark as Popular",
+          "type": "boolean"
+        },
+        {
+          "key": "chefNote",
+          "label": "Chef's Pro Tip",
+          "type": "textarea"
+        },
+        {
+          "key": "visible",
+          "label": "Visible on Website",
+          "type": "boolean"
+        },
+        {
+          "key": "order",
+          "label": "Catalog Order",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "aboutSection",
+      "label": "About & Story Section",
+      "contentPath": "aboutSection",
+      "fields": [
+        {
+          "key": "badge",
+          "label": "Badge Label",
+          "type": "text"
+        },
+        {
+          "key": "heading",
+          "label": "Section Heading",
+          "type": "text"
+        },
+        {
+          "key": "description",
+          "label": "Mission Description",
+          "type": "textarea"
+        },
+        {
+          "key": "quote",
+          "label": "Featured Team Quote",
+          "type": "textarea"
+        },
+        {
+          "key": "quoteAuthor",
+          "label": "Quote Attributed Author",
+          "type": "text"
+        },
+        {
+          "key": "features",
+          "label": "Core Mission Pillars",
+          "type": "array",
+          "itemLabel": "Pillar",
+          "allowAdd": true,
+          "allowDelete": true,
+          "allowReorder": true,
+          "fields": [
+            {
+              "key": "id",
+              "label": "ID",
+              "type": "text"
+            },
+            {
+              "key": "title",
+              "label": "Pillar Title",
+              "type": "text"
+            },
+            {
+              "key": "description",
+              "label": "Pillar Description",
+              "type": "textarea"
+            },
+            {
+              "key": "icon",
+              "label": "Icon",
+              "type": "select",
+              "options": [
+                { "label": "ShieldCheck", "value": "ShieldCheck" },
+                { "label": "HeartHandshake", "value": "HeartHandshake" },
+                { "label": "Sparkles", "value": "Sparkles" }
+              ]
+            },
+            {
+              "key": "visible",
+              "label": "Visible",
+              "type": "boolean"
+            },
+            {
+              "key": "order",
+              "label": "Order",
+              "type": "number"
+            }
+          ]
+        },
+        {
+          "key": "stats",
+          "label": "Trust Metrics",
+          "type": "array",
+          "itemLabel": "Trust Metric",
+          "allowAdd": true,
+          "allowDelete": true,
+          "allowReorder": true,
+          "fields": [
+            {
+              "key": "id",
+              "label": "ID",
+              "type": "text"
+            },
+            {
+              "key": "value",
+              "label": "Metric Value",
+              "type": "text"
+            },
+            {
+              "key": "label",
+              "label": "Metric Label",
+              "type": "text"
+            },
+            {
+              "key": "visible",
+              "label": "Visible",
+              "type": "boolean"
+            },
+            {
+              "key": "order",
+              "label": "Order",
+              "type": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "label": "Footer & Newsletter",
+      "contentPath": "footer",
+      "fields": [
+        {
+          "key": "brandName",
+          "label": "Brand Name",
+          "type": "text"
+        },
+        {
+          "key": "brandDescription",
+          "label": "Brand Bio / About Paragraph",
+          "type": "textarea"
+        },
+        {
+          "key": "copyright",
+          "label": "Copyright Text",
+          "type": "text"
+        },
+        {
+          "key": "tagline",
+          "label": "Footer Bottom Tagline",
+          "type": "text"
+        },
+        {
+          "key": "quickLinks",
+          "label": "Quick Navigation Links",
+          "type": "array",
+          "itemLabel": "Quick Link",
+          "allowAdd": true,
+          "allowDelete": true,
+          "allowReorder": true,
+          "fields": [
+            {
+              "key": "id",
+              "label": "ID",
+              "type": "text"
+            },
+            {
+              "key": "label",
+              "label": "Link Label",
+              "type": "text"
+            },
+            {
+              "key": "url",
+              "label": "Destination Anchor / URL",
+              "type": "text"
+            },
+            {
+              "key": "visible",
+              "label": "Visible",
+              "type": "boolean"
+            },
+            {
+              "key": "order",
+              "label": "Order",
+              "type": "number"
+            }
+          ]
+        },
+        {
+          "key": "cuisines",
+          "label": "Popular Cuisines List",
+          "type": "array",
+          "itemLabel": "Cuisine Item",
+          "allowAdd": true,
+          "allowDelete": true,
+          "allowReorder": true,
+          "fields": [
+            {
+              "key": "id",
+              "label": "ID",
+              "type": "text"
+            },
+            {
+              "key": "label",
+              "label": "Cuisine Label",
+              "type": "text"
+            },
+            {
+              "key": "url",
+              "label": "URL",
+              "type": "text"
+            },
+            {
+              "key": "visible",
+              "label": "Visible",
+              "type": "boolean"
+            },
+            {
+              "key": "order",
+              "label": "Order",
+              "type": "number"
+            }
+          ]
+        },
+        {
+          "key": "socialLinks",
+          "label": "Social Media Links",
+          "type": "array",
+          "itemLabel": "Social Platform",
+          "allowAdd": true,
+          "allowDelete": true,
+          "allowReorder": true,
+          "fields": [
+            {
+              "key": "id",
+              "label": "ID",
+              "type": "text"
+            },
+            {
+              "key": "platform",
+              "label": "Platform",
+              "type": "select",
+              "options": [
+                { "label": "Instagram", "value": "Instagram" },
+                { "label": "Facebook", "value": "Facebook" },
+                { "label": "Twitter", "value": "Twitter" },
+                { "label": "Youtube", "value": "Youtube" }
+              ]
+            },
+            {
+              "key": "url",
+              "label": "Profile URL",
+              "type": "url"
+            },
+            {
+              "key": "visible",
+              "label": "Visible",
+              "type": "boolean"
+            },
+            {
+              "key": "order",
+              "label": "Order",
+              "type": "number"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Search, X, ArrowRight, Sparkles, Clock } from 'lucide-react';
+import { Search, X, ArrowRight, Sparkles } from 'lucide-react';
 import { Recipe } from '../types';
+import siteContent from '../data/siteContent.json';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -16,6 +17,11 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   onSelectRecipe,
 }) => {
   const [query, setQuery] = useState('');
+
+  const suggestedSearches = siteContent.hero.popularSearches
+    .filter((p) => p.visible !== false)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+    .map((p) => p.term);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -64,7 +70,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           />
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+            className="p-1.5 rounded-full text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -119,17 +125,15 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   Suggested Searches
                 </span>
                 <div className="flex flex-wrap gap-2">
-                  {['Creamy Garlic Chicken', 'Lemon Herb Salmon', 'Chicken Alfredo', 'Chocolate Cake', 'Smoothies'].map(
-                    (term) => (
-                      <button
-                        key={term}
-                        onClick={() => setQuery(term)}
-                        className="px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-neutral-800 hover:bg-orange-50 dark:hover:bg-neutral-700 text-xs font-medium text-gray-700 dark:text-gray-300 hover:text-orange-600 transition-colors cursor-pointer"
-                      >
-                        {term}
-                      </button>
-                    )
-                  )}
+                  {suggestedSearches.map((term) => (
+                    <button
+                      key={term}
+                      onClick={() => setQuery(term)}
+                      className="px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-neutral-800 hover:bg-orange-50 dark:hover:bg-neutral-700 text-xs font-medium text-gray-700 dark:text-gray-300 hover:text-orange-600 transition-colors cursor-pointer"
+                    >
+                      {term}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
@@ -140,7 +144,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         <div className="px-4 py-3 bg-gray-50 dark:bg-neutral-800/50 border-t border-gray-100 dark:border-neutral-800 text-[11px] text-gray-400 flex items-center justify-between">
           <span>Press <kbd className="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-neutral-700 text-gray-700 dark:text-gray-200 font-mono">ESC</kbd> to exit</span>
           <span className="flex items-center gap-1">
-            <Sparkles className="w-3 h-3 text-orange-500" /> Savorly Quick Search
+            <Sparkles className="w-3 h-3 text-orange-500" /> {siteContent.navigation.logoText} Quick Search
           </span>
         </div>
       </div>

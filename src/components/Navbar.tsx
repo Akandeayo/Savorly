@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChefHat, Search, Moon, Sun, ArrowRight, Menu, X } from 'lucide-react';
+import siteContent from '../data/siteContent.json';
 
 interface NavbarProps {
   darkMode: boolean;
@@ -29,33 +30,29 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'recipes', label: 'Recipes' },
-    { id: 'categories', label: 'Categories' },
-    { id: 'about', label: 'About' },
-    { id: 'contact', label: 'Contact' },
-  ];
+  const navLinks = siteContent.navigation.links
+    .filter((link) => link.visible !== false)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
-  const handleNavClick = (id: string) => {
-    setActiveNav(id);
+  const handleNavClick = (targetId: string) => {
+    setActiveNav(targetId);
     setMobileMenuOpen(false);
-    if (id === 'recipes' || id === 'home') {
-      const target = document.getElementById(id === 'recipes' ? 'recipes-section' : 'hero-section');
+    if (targetId === 'recipes' || targetId === 'home') {
+      const target = document.getElementById(targetId === 'recipes' ? 'recipes-section' : 'hero-section');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       }
-    } else if (id === 'categories') {
+    } else if (targetId === 'categories') {
       const target = document.getElementById('categories-section');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       }
-    } else if (id === 'about') {
+    } else if (targetId === 'about') {
       const target = document.getElementById('about-section');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       }
-    } else if (id === 'contact') {
+    } else if (targetId === 'contact') {
       const target = document.getElementById('footer-section');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
@@ -84,10 +81,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
           <div className="flex flex-col">
             <span className="font-extrabold text-2xl tracking-tight text-[#111827] dark:text-white flex items-center gap-1 font-display">
-              Savorly<span className="text-orange-500 text-3xl leading-none">.</span>
+              {siteContent.navigation.logoText}
+              <span className="text-orange-500 text-3xl leading-none">.</span>
             </span>
             <span className="text-[10px] tracking-wider uppercase font-semibold text-[#6B7280] dark:text-gray-400 -mt-1 hidden sm:inline">
-              Cook with confidence
+              {siteContent.navigation.logoTagline}
             </span>
           </div>
         </div>
@@ -95,12 +93,12 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Center: Navigation Links (Desktop) */}
         <nav className="hidden md:flex items-center gap-8" id="desktop-nav-links">
           {navLinks.map((link) => {
-            const isActive = activeNav === link.id;
+            const isActive = activeNav === link.targetId;
             return (
               <button
                 key={link.id}
-                id={`nav-link-${link.id}`}
-                onClick={() => handleNavClick(link.id)}
+                id={`nav-link-${link.targetId}`}
+                onClick={() => handleNavClick(link.targetId)}
                 className={`relative py-2 text-sm font-medium transition-colors duration-200 ${
                   isActive
                     ? 'text-orange-500 dark:text-orange-400 font-semibold'
@@ -150,7 +148,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={onBrowseClick}
             className="hidden sm:inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-md shadow-orange-500/20 hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
-            Browse Recipes
+            {siteContent.navigation.ctaLabel}
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
 
@@ -173,9 +171,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navLinks.map((link) => (
               <button
                 key={link.id}
-                onClick={() => handleNavClick(link.id)}
+                onClick={() => handleNavClick(link.targetId)}
                 className={`text-left px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${
-                  activeNav === link.id
+                  activeNav === link.targetId
                     ? 'bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 font-semibold'
                     : 'text-[#6B7280] dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-neutral-800'
                 }`}
@@ -192,7 +190,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm py-3 rounded-full shadow-md shadow-orange-500/20"
             >
-              Browse Recipes
+              {siteContent.navigation.ctaLabel}
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
