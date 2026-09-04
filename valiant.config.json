@@ -1,4 +1,7 @@
 {
+  "version": 1,
+  "siteName": "Savorly",
+  "vercelUrl": "https://savorly-taupe.vercel.app",
   "contentPath": "src/data/siteContent.json",
   "schemaPath": "src/data/adminSchema.json"
 }
