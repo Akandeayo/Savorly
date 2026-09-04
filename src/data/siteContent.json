@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Savorly - Premium Recipe & Culinary Landing Experience",
+    "title": "Savorly - Premium and Exquisite Recipe & Culinary Landing Experience",
     "description": "Premium recipe website and culinary landing experience with search, curated recipes, and interactive food discovery.",
     "openGraphImage": "/images/savorly_hero_dish_1785418456470.jpg"
   },
@@ -57,11 +57,36 @@
     "imageAlt": "Gourmet Mediterranean Power Bowl",
     "imageBadge": "Chef's Choice Platter",
     "popularSearches": [
-      { "id": "pop-1", "term": "Chicken Alfredo", "visible": true, "order": 1 },
-      { "id": "pop-2", "term": "Pasta", "visible": true, "order": 2 },
-      { "id": "pop-3", "term": "Chocolate Cake", "visible": true, "order": 3 },
-      { "id": "pop-4", "term": "Smoothies", "visible": true, "order": 4 },
-      { "id": "pop-5", "term": "Salads", "visible": true, "order": 5 }
+      {
+        "id": "pop-1",
+        "term": "Chicken Alfredo",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "id": "pop-2",
+        "term": "Pasta",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "id": "pop-3",
+        "term": "Chocolate Cake",
+        "visible": true,
+        "order": 3
+      },
+      {
+        "id": "pop-4",
+        "term": "Smoothies",
+        "visible": true,
+        "order": 4
+      },
+      {
+        "id": "pop-5",
+        "term": "Salads",
+        "visible": true,
+        "order": 5
+      }
     ],
     "stats": [
       {
@@ -177,7 +202,7 @@
       "servings": 4,
       "calories": 480,
       "difficulty": "Easy",
-      "rating": 5.0,
+      "rating": 5,
       "reviewsCount": 342,
       "views": "24.8K",
       "image": "/images/tuscan_chicken_1785418467629.jpg",
@@ -206,7 +231,12 @@
         "Return chicken breasts to the pan, spooning sauce over top. Simmer 2 more minutes and serve warm with crusty bread or pasta."
       ],
       "chefNote": "For extra depth of flavor, use the reserved oil from the sun-dried tomato jar when searing the chicken.",
-      "tags": ["30 Mins", "Keto Friendly", "Creamy", "Italian"]
+      "tags": [
+        "30 Mins",
+        "Keto Friendly",
+        "Creamy",
+        "Italian"
+      ]
     },
     {
       "id": "rec-2",
@@ -244,7 +274,12 @@
         "Garnish with extra fresh parsley and squeeze fresh lemon juice right before serving."
       ],
       "chefNote": "Wild-caught salmon works best for rich Omega-3 content and crisp skin texture.",
-      "tags": ["One-Pan", "Low Carb", "High Protein", "Seafood"]
+      "tags": [
+        "One-Pan",
+        "Low Carb",
+        "High Protein",
+        "Seafood"
+      ]
     },
     {
       "id": "rec-3",
@@ -281,7 +316,12 @@
         "Toss warm pasta into the sauce, adding pasta water as needed for silky coating. Top with sliced grilled chicken."
       ],
       "chefNote": "Always grate Parmesan from a fresh block to avoid anti-caking clumping.",
-      "tags": ["Pasta", "Comfort Food", "Chicken", "Italian"]
+      "tags": [
+        "Pasta",
+        "Comfort Food",
+        "Chicken",
+        "Italian"
+      ]
     },
     {
       "id": "rec-4",
@@ -318,7 +358,12 @@
         "Let sit 1 minute, invert onto dessert plates, dust with powdered sugar and serve immediately."
       ],
       "chefNote": "Bake time is key — center should still be soft and jiggly when removed from oven.",
-      "tags": ["Chocolate", "Dessert", "Date Night", "Baking"]
+      "tags": [
+        "Chocolate",
+        "Dessert",
+        "Date Night",
+        "Baking"
+      ]
     },
     {
       "id": "rec-5",
@@ -354,7 +399,12 @@
         "Blend until velvety smooth and creamy. Pour into chilled glasses and top with extra chia seeds."
       ],
       "chefNote": "Blending greens with liquid first guarantees zero leafy specks in your smoothie!",
-      "tags": ["Smoothie", "Detox", "Vegan", "Quick"]
+      "tags": [
+        "Smoothie",
+        "Detox",
+        "Vegan",
+        "Quick"
+      ]
     },
     {
       "id": "rec-6",
@@ -391,7 +441,12 @@
         "Drizzle with extra virgin olive oil, balsamic glaze, and garnish with coarse sea salt flakes."
       ],
       "chefNote": "Bring burrata to room temperature 20 minutes before serving for maximum creamy texture.",
-      "tags": ["Salad", "Vegetarian", "No-Cook", "Fresh"]
+      "tags": [
+        "Salad",
+        "Vegetarian",
+        "No-Cook",
+        "Fresh"
+      ]
     },
     {
       "id": "rec-7",
@@ -427,7 +482,12 @@
         "Garnish with toasted pumpkin seeds and fresh parsley."
       ],
       "chefNote": "Meal prep secret: Roast sweet potatoes and chickpeas ahead of time for a 5-minute lunch assembly.",
-      "tags": ["Meal Prep", "High Fiber", "Vegan Option", "Bowl"]
+      "tags": [
+        "Meal Prep",
+        "High Fiber",
+        "Vegan Option",
+        "Bowl"
+      ]
     }
   ],
   "aboutSection": {
@@ -495,22 +555,94 @@
       "successMessage": "✓ Thanks for subscribing! Check your inbox soon."
     },
     "quickLinks": [
-      { "id": "ql-1", "label": "Home", "url": "#hero-section", "visible": true, "order": 1 },
-      { "id": "ql-2", "label": "Browse Recipes", "url": "#recipes-section", "visible": true, "order": 2 },
-      { "id": "ql-3", "label": "Categories", "url": "#categories-section", "visible": true, "order": 3 },
-      { "id": "ql-4", "label": "Our Story", "url": "#about-section", "visible": true, "order": 4 }
+      {
+        "id": "ql-1",
+        "label": "Home",
+        "url": "#hero-section",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "id": "ql-2",
+        "label": "Browse Recipes",
+        "url": "#recipes-section",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "id": "ql-3",
+        "label": "Categories",
+        "url": "#categories-section",
+        "visible": true,
+        "order": 3
+      },
+      {
+        "id": "ql-4",
+        "label": "Our Story",
+        "url": "#about-section",
+        "visible": true,
+        "order": 4
+      }
     ],
     "cuisines": [
-      { "id": "cuis-1", "label": "Italian Classics", "url": "#", "visible": true, "order": 1 },
-      { "id": "cuis-2", "label": "Mediterranean Bowls", "url": "#", "visible": true, "order": 2 },
-      { "id": "cuis-3", "label": "30-Minute Dinners", "url": "#", "visible": true, "order": 3 },
-      { "id": "cuis-4", "label": "Keto & Low Carb", "url": "#", "visible": true, "order": 4 }
+      {
+        "id": "cuis-1",
+        "label": "Italian Classics",
+        "url": "#",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "id": "cuis-2",
+        "label": "Mediterranean Bowls",
+        "url": "#",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "id": "cuis-3",
+        "label": "30-Minute Dinners",
+        "url": "#",
+        "visible": true,
+        "order": 3
+      },
+      {
+        "id": "cuis-4",
+        "label": "Keto & Low Carb",
+        "url": "#",
+        "visible": true,
+        "order": 4
+      }
     ],
     "socialLinks": [
-      { "id": "soc-1", "platform": "Instagram", "url": "#", "visible": true, "order": 1 },
-      { "id": "soc-2", "platform": "Facebook", "url": "#", "visible": true, "order": 2 },
-      { "id": "soc-3", "platform": "Twitter", "url": "#", "visible": true, "order": 3 },
-      { "id": "soc-4", "platform": "Youtube", "url": "#", "visible": true, "order": 4 }
+      {
+        "id": "soc-1",
+        "platform": "Instagram",
+        "url": "#",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "id": "soc-2",
+        "platform": "Facebook",
+        "url": "#",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "id": "soc-3",
+        "platform": "Twitter",
+        "url": "#",
+        "visible": true,
+        "order": 3
+      },
+      {
+        "id": "soc-4",
+        "platform": "Youtube",
+        "url": "#",
+        "visible": true,
+        "order": 4
+      }
     ],
     "copyright": "Savorly Inc. All rights reserved.",
     "tagline": "for food lovers everywhere."
